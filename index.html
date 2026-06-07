@@ -1,63 +1,92 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLVSTONE | Pure Science, Natural Life</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>SOLVSTONE | Cellular Longevity & Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* --- 1. 品牌级样式基础 --- */
+        /* --- 1. 顶级全局美学体系 --- */
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            line-height: 1.5;
+            background-color: #000000; /* 改用极为深邃的科技暗黑背景，最能衬托蓝色的高端光影 */
+            color: #f5f5f7;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* 隐藏滚动条但保留功能 */
         ::-webkit-scrollbar { width: 0px; }
 
-        /* --- 2. 极简导航 --- */
+        /* 微弱的背景光晕动态效果 - 模拟细胞能量 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(0,113,227,0.08) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            animation: pulseGlow 10s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+
+        /* --- 2. 苹果级浮动悬浮舱导航 --- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 60px;
+            height: 64px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .brand-logo {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 24px;
-            letter-spacing: 4px;
-            color: #0071e3; /* 品牌蓝 */
+            letter-spacing: 6px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ffffff 30%, #0071e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* --- 3. 通用幻灯片式布局 --- */
+        /* --- 3. 巨幕式幻灯片剧场布局 --- */
         .slide-container {
-            width: 1280px;
-            height: 720px;
-            margin: 80px auto; /* 居中并留白 */
-            background: #f5f5f7;
-            border-radius: 30px;
+            width: 1340px;
+            height: 780px;
+            margin: 120px auto;
+            background: rgba(28, 28, 30, 0.6); /* 苹果高阶深色卡片 */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 36px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            /* 页面初次载入动画 */
+            opacity: 0;
+            transform: translateY(60px);
+            animation: stageReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes stageReveal {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .content-area {
@@ -65,128 +94,180 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 60px;
+            padding: 60px 100px;
         }
 
-        /* --- 4. 第一部分：Hero 展示 --- */
-        .hero-section {
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* --- 4. 第一幕：震撼开幕 (Hero Narrative) --- */
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             width: 100%;
             height: 100%;
+            align-items: center;
         }
         .hero-text {
-            flex: 1;
-            padding-left: 80px;
-            z-index: 2;
+            padding-left: 40px;
+        }
+        .tagline {
+            color: #0071e3;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
         .hero-text h1 {
             font-size: 64px;
-            font-weight: 600;
+            font-weight: 700;
             margin: 0;
             line-height: 1.1;
+            letter-spacing: -2px;
+            color: #ffffff;
         }
         .hero-text p {
-            font-size: 24px;
-            color: #86868b;
-            margin-top: 20px;
+            font-size: 20px;
+            color: #a1a1a6;
+            margin-top: 30px;
+            font-weight: 300;
+            max-width: 500px;
         }
-        .hero-product-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            z-index: 2;
+        .hero-main-viewport {
+            height: 100%;
+            width: 100%;
+            background-image: url('801c9b3e42297845ef6a95f84a1cb25a.jpg'); /* 承载培养皿及动态视觉图 */
+            background-size: cover;
+            background-position: center;
+            border-left: 1px solid rgba(255,255,255,0.05);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-product-img img {
-            max-height: 550px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
-            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-        .hero-product-img img:hover {
-            transform: scale(1.05) translateY(-10px);
+        .slide-container:hover .hero-main-viewport {
+            transform: scale(1.02);
         }
 
-        /* --- 5. 第二部分：核心优势 --- */
-        .tiled-content {
+        /* --- 5. 第二幕：多维临床科技矩阵 (Clinical Science Grid) --- */
+        .grid-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 40px;
             width: 100%;
         }
-        .tile {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
+        .feature-box {
+            background: rgba(44, 44, 46, 0.4);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 60px 40px;
+            border-radius: 28px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .tile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .feature-box:hover {
+            transform: translateY(-10px);
+            background: rgba(44, 44, 46, 0.8);
+            border-color: #0071e3;
+            box-shadow: 0 30px 60px rgba(0,113,227,0.1);
         }
-        .tile i {
-            font-size: 40px;
+        .feature-box i {
+            font-size: 48px;
             color: #0071e3;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0,113,227,0.3);
         }
-        .tile h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+        .feature-box h3 {
+            font-size: 26px;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+            color: #ffffff;
         }
-        .tile p {
-            color: #86868b;
+        .feature-box p {
+            color: #a1a1a6;
             font-size: 16px;
+            margin: 0;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-        /* --- 6. 第三部分：科学事实 --- */
-        .two-column {
+        /* --- 6. 第三幕：全尺寸双图医学实验室 (Data & Transparency) --- */
+        .showcase-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.1fr 1.1fr 1fr;
+            gap: 40px;
             width: 100%;
             align-items: center;
         }
-        .facts-img-container {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .img-card {
+            background: #ffffff; /* 保持产品原图纯白底色，在暗色网页中像发光的展示柜 */
+            padding: 30px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 560px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .facts-img-container img {
-            width: 100%;
-            border-radius: 10px;
+        .img-card:hover {
+            transform: scale(1.03) translateY(-5px);
         }
-        .scientific-purity {
-            padding-right: 40px;
-        }
-        .scientific-purity h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .img-card img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
         }
 
-        /* --- 7. 化学公式展示 --- */
-        #formula-container {
-            background: #1d1d1f;
-            color: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 30px;
+        /* 成分表扫描特效 */
+        .scan-effect::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 113, 227, 0.15), transparent);
+            animation: scanAnimation 3s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanAnimation {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        .info-panel {
+            padding-left: 30px;
+        }
+        .info-panel h2 {
+            font-size: 46px;
+            font-weight: 700;
+            margin: 0 0 24px 0;
+            line-height: 1.15;
+            color: #ffffff;
+        }
+        .info-panel p {
+            color: #a1a1a6;
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 0 0 40px 0;
+            font-weight: 300;
+        }
+        .formula-badge {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 24px;
             text-align: center;
         }
-        math {
-            font-size: 28px;
-        }
 
-        /* 响应式调整 */
-        @media (max-width: 1300px) {
-            .slide-container { width: 95%; height: auto; margin: 40px auto; }
-            .hero-section { flex-direction: column; text-align: center; padding-top: 40px; }
-            .hero-text { padding: 0 20px; }
-            .two-column { grid-template-columns: 1fr; }
+        /* --- 7. 响应式布局自适应调整 --- */
+        @media (max-width: 1400px) {
+            .slide-container { width: 95%; height: auto; margin: 60px auto; }
+            .hero-layout { grid-template-columns: 1fr; }
+            .hero-main-viewport { height: 480px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
+            .hero-text { padding: 60px 40px; text-align: center; }
+            .hero-text p { margin: 30px auto 0 auto; }
+            .grid-features { grid-template-columns: 1fr; }
+            .showcase-layout { grid-template-columns: 1fr; gap: 40px; }
+            .img-card { height: 480px; }
+            .info-panel { padding-left: 0; text-align: center; }
         }
     </style>
 </head>
@@ -196,35 +277,34 @@
         <div class="brand-logo">SOLVSTONE</div>
     </header>
 
-    <div class="slide-container">
-        <div class="hero-section">
+    <div class="slide-container" style="margin-top: 140px;">
+        <div class="hero-layout">
             <div class="hero-text">
-                <h1>Gentle Power.<br>Natural Science.</h1>
-                <p>Pure Curcumin Supplement<br>444mg Potency | Lab Tested > 99%</p>
+                <div class="tagline">Bio-Medical Excellence</div>
+                <h1>Deep Cellular<br>Rejuvenation.</h1>
+                <p>An advanced molecular formulation engineered to fortify cellular defenses. Harnessing ultra-pure bioactive compounds to target aging at its core source.</p>
             </div>
-            <div class="hero-product-img">
-                <img src="product.png" alt="Solvstone Product">
-            </div>
+            <div class="hero-main-viewport"></div>
         </div>
     </div>
 
-    <div class="slide-container" style="background-color: #ffffff;">
+    <div class="slide-container">
         <div class="content-area">
-            <div class="tiled-content">
-                <div class="tile">
-                    <i class="fa-solid fa-leaf"></i>
-                    <h3>100% Natural</h3>
-                    <p>Derived from premium turmeric, ensuring a clean and effective formula for your wellness.</p>
+            <div class="grid-features">
+                <div class="feature-box">
+                    <i class="fa-solid fa-microscope"></i>
+                    <h3>Cellular Bioavailability</h3>
+                    <p>Utilizing high-kinetic microscopic synthesis to drastically increase intestinal epithelial absorption rates compared to raw generic formulas.</p>
                 </div>
-                <div class="tile">
-                    <i class="fa-solid fa-flask-vial"></i>
-                    <h3>Purity > 99%</h3>
-                    <p>Each capsule is lab-tested to guarantee the highest concentration of active ingredients.</p>
+                <div class="feature-box">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                    <h3>HPLC Certified Purity</h3>
+                    <p>Every single capsule is validated via High-Performance Liquid Chromatography to guarantee an active density profile exceeding 99.0%.</p>
                 </div>
-                <div class="tile">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <h3>Advanced Safety</h3>
-                    <p>Manufactured under strict guidelines to ensure maximum absorption and safety.</p>
+                <div class="feature-box">
+                    <i class="fa-solid fa-dna"></i>
+                    <h3>Non-Gmo Transparency</h3>
+                    <p>100% plant-derived hypoallergenic matrices. Completely clear of synthetic lubricants, heavy metals, magnesium stearate, or chemical fillers.</p>
                 </div>
             </div>
         </div>
@@ -232,16 +312,18 @@
 
     <div class="slide-container">
         <div class="content-area">
-            <div class="two-column">
-                <div class="facts-img-container">
-                    <img src="facts.png" alt="Supplement Facts">
+            <div class="showcase-layout">
+                <div class="img-card">
+                    <img src="72aa1a42c053bbd8bcbdb7eb43ed71a7.jpg" alt="Solvstone Formulation Geometry">
                 </div>
-                <div class="scientific-purity">
-                    <h2>Scientific<br>Transparency</h2>
-                    <p>We believe in radical transparency. Every batch is analyzed for purity and potency to meet the SOLVSTONE standard of excellence.</p>
-                    
-                    <div id="formula-container">
-                        <p style="color: #0071e3; margin-bottom: 10px; font-weight: 600;">Molecular Formula</p>
+                <div class="img-card scan-effect">
+                    <img src="f50406f96655080590822066dbe0ca1b_副本.jpg" alt="Clinical Label Supplement Facts">
+                </div>
+                <div class="info-panel">
+                    <h2>Absolute<br>Transparency.</h2>
+                    <p>We redefine trust through molecular accountability. Scan your individual bottle container matrix code to inspect third-party laboratory safety records.</p>
+                    <div class="formula-badge">
+                        <p style="color: #0071e3; margin: 0 0 12px 0; font-weight: 600; font-size: 13px; letter-spacing: 2px;">MOLECULAR TARGET</p>
                         <math display="block">
                             <mrow>
                                 <msub><mi>C</mi><mn>21</mn></msub>
@@ -255,8 +337,8 @@
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 60px; color: #86868b; font-size: 14px; letter-spacing: 2px;">
-        © 2026 SOLVSTONE LABORATORIES. ALL RIGHTS RESERVED.
+    <footer style="text-align: center; padding: 100px 0; color: #48484a; font-size: 13px; letter-spacing: 2px;">
+        © 2026 SOLVSTONE NUTRACEUTICAL LABORATORIES. EXPERIMENT VERIFIED.
     </footer>
 
 </body>
