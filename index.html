@@ -3,90 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GENTLE AND NATURAL FORMULA - 444mg Capsules</title>
+    <title>GENTLE AND NATURAL FORMULA - Apple-esque dynamic</title>
     <style>
+        /* --- 1. 核心字体与重置 --- */
+        /* 使用类似 Apple SF Pro 的通用字体系列 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #f5f5f7; /* 极淡的苹果灰 */
+            color: #1d1d1f;
+            overflow-x: hidden; /* 防止水平滚动条 */
+            -webkit-font-smoothing: antialiased; /* 字体更清晰 */
         }
 
-        /* 顶部蓝色横幅部分 */
+        /* --- 2. 苹果风蓝色 (SF Blue) --- */
+        :root {
+            --apple-blue: #0071e3;
+            --apple-blue-hover: #005bb5;
+            --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1); /* 高级动画曲线 */
+        }
+
+        /* --- 3. 加载动画定义 (Fades & Slide In) --- */
+        @keyframes fadeInSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInSlideRight {
+            0% { opacity: 0; transform: translateX(-30px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* --- 4. 顶部横幅 - 精细化蓝色 --- */
         .hero-banner {
-            background-color: #0056b3;
+            background-color: var(--apple-blue);
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            text-transform: uppercase;
+            padding: 50px 20px;
+            letter-spacing: 0.1em; /* 增加字间距，更显高端 */
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInSlideUp 0.8s var(--ease-in-out-quint) forwards; /* 蓝色横幅滑入 */
         }
         .hero-banner h1 {
             margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
+            font-size: 2.8em;
+            text-transform: uppercase;
         }
 
-        /* 主体内容区域 - 两栏布局 */
+        /* --- 5. 主体两栏容器 - 增加间距 --- */
         .content-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            max-width: 1200px;
-            margin: 40px auto;
+            align-items: flex-start;
+            max-width: 1300px; /* 增加宽度 */
+            margin: 60px auto;
             padding: 20px;
-            gap: 40px;
+            gap: 60px; /* 增加间距，更有呼吸感 */
+            perspective: 1000px; /* 为3D效果准备 */
         }
 
-        /* 左侧：营养成分表栏 */
+        /* --- 6. 左侧：营养成分表 - 毛玻璃效果与加载动画 --- */
         .facts-column {
             flex: 1;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            /* 苹果风毛玻璃效果 */
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px; /* 更圆润 */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); /* 更柔和、更大的阴影 */
+            opacity: 0;
+            animation: fadeInSlideRight 1s var(--ease-in-out-quint) 0.3s forwards; /* 延时左侧滑入 */
+            transition: transform 0.4s ease, box-shadow 0.4s ease; /* 准备悬停动效 */
+        }
+        .facts-column:hover {
+            transform: scale(1.02); /* 鼠标悬停轻微放大 */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08); /* 悬停阴影变深 */
         }
         .facts-column img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             display: block;
         }
 
-        /* 右侧：产品展示栏 */
+        /* --- 7. 右侧：产品展示 - 动态背景与视差 --- */
         .product-column {
             flex: 1;
             position: relative;
             text-align: center;
-            background-image: url('https://images.subspace.cc/b3e42297845ef6a95f84a1cb25a.jpg'); /* 直接使用科学水波纹图作为整栏背景 */
-            background-size: cover;
-            background-position: center;
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            min-height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden; /* 裁剪背景图 */
+            border-radius: 20px;
+            background-color: white; /* 瓶子主体背景为白色，突显纯净 */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fadeInSlideUp 1s var(--ease-in-out-quint) 0.6s forwards; /* 延时右侧滑入 */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .product-column:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
         }
 
-        /* 产品主图 */
+        /* 科学氛围背景图 - 增加视差移动效果 */
+        .science-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; /* 增加高度以供视差移动 */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center bottom;
+            opacity: 0.25; /* 降低透明度 */
+            z-index: 1;
+            transform: translateY(-10%); /* 初始位置微调 */
+            transition: transform 0.6s var(--ease-in-out-quint); /* 悬停时的视差平滑移动 */
+        }
+        .product-column:hover .science-background {
+            transform: translateY(0); /* 悬停时背景向下移，产生视差 */
+        }
+
+        /* 产品主图 - 增加微小的呼吸效果 */
         .product-image {
             max-width: 85%;
             height: auto;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15)); /* 给瓶子加一点立体阴影 */
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.12)); /* 苹果风柔和瓶身阴影 */
+            transition: transform 0.6s var(--ease-in-out-quint), filter 0.6s var(--ease-in-out-quint);
+        }
+        .product-column:hover .product-image {
+            transform: scale(1.05) translateY(-5px); /* 悬停时瓶子轻微放大并升起 */
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
         }
 
-        /* 移动端适配 */
+        /* --- 8. 移动端适配 - 增加间距与呼吸感 --- */
         @media (max-width: 768px) {
             .content-container {
                 flex-direction: column;
-                padding: 15px;
+                margin: 40px 15px; /* 侧边留白 */
+                padding: 10px;
+                gap: 40px;
+            }
+            .hero-banner {
+                padding: 40px 15px;
             }
             .hero-banner h1 {
-                font-size: 1.8em;
+                font-size: 2em;
+            }
+            .facts-column {
+                padding: 20px;
             }
             .product-column {
                 min-height: auto;
+            }
+            /* 手机端禁用复杂的悬停效果 */
+            .facts-column:hover,
+            .product-column:hover .product-image,
+            .product-column:hover {
+                transform: none;
+                scale: none;
             }
         }
     </style>
@@ -100,11 +178,12 @@
     <main class="content-container">
         
         <section class="facts-column">
-            <img src="https://images.subspace.cc/f50406f96655080590822066dbe0ca1b_副本.jpg" alt="Supplement Facts and Chemical Info">
+            <img src="facts.png" alt="Supplement Facts and Chemical Info">
         </section>
 
         <section class="product-column">
-            <img src="https://images.subspace.cc/72aa1a42c053bbd8bcbdb7eb43ed71a7.jpg" alt="444mg Curcumin Capsules" class="product-image">
+            <div class="science-background"></div>
+            <img src="product.png" alt="444mg Curcumin Capsules" class="product-image">
         </section>
 
     </main>
