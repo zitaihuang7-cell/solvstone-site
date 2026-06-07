@@ -1,122 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOLVSTONE LABS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENTLE AND NATURAL FORMULA - 444mg Capsules</title>
+    <style>
+        /* 这里是基础的 CSS 样式，用于控制布局 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* 浅灰色背景 */
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        /* 顶部蓝色横幅部分 */
+        .hero-banner {
+            background-color: #0056b3; /* 蓝色背景 */
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            text-transform: uppercase;
+        }
+        .hero-banner h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
 
-body{
-font-family:Arial,sans-serif;
-background:#050b18;
-color:white;
-overflow-x:hidden;
-}
+        /* 主体内容区域 - 两栏布局 */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            gap: 40px; /* 两栏之间的间距 */
+        }
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(-45deg,#05101f,#0b2f6d,#0f5fe0,#05101f);
-background-size:400% 400%;
-animation:gradient 12s ease infinite;
-}
+        /* 左侧：营养成分表栏 */
+        .facts-column {
+            flex: 1; /* 占据一半宽度 */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .facts-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
-@keyframes gradient{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+        /* 右侧：产品展示栏 */
+        .product-column {
+            flex: 1; /* 占据一半宽度 */
+            position: relative; /* 为叠加背景做准备 */
+            text-align: center;
+        }
 
-h1{
-font-size:72px;
-letter-spacing:3px;
-margin-bottom:15px;
-}
+        /* 产品主图 */
+        .product-image {
+            max-width: 90%;
+            height: auto;
+            position: relative;
+            z-index: 2; /* 确保产品图在背景之上 */
+        }
 
-.subtitle{
-font-size:24px;
-opacity:.9;
-}
+        /* 科学氛围背景图（从 image_2.png 提取，叠加在底部） */
+        .science-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/background.png');
+            background-size: cover;
+            background-position: center bottom;
+            opacity: 0.3; /* 降低透明度，让它成为柔和的背景 */
+            z-index: 1; /* 在产品图之下 */
+            border-radius: 10px;
+        }
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-border-radius:30px;
-background:#1d7cff;
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-.section{
-padding:100px 20px;
-text-align:center;
-}
-
-.card{
-max-width:900px;
-margin:auto;
-padding:40px;
-background:rgba(255,255,255,.05);
-border-radius:20px;
-backdrop-filter:blur(10px);
-}
-
-h2{
-margin-bottom:20px;
-}
-
-p{
-line-height:1.8;
-}
-
-footer{
-padding:40px;
-text-align:center;
-opacity:.7;
-}
-</style>
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .hero-banner h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<section class="hero">
-<h1>SOLVSTONE LABS</h1>
-<p class="subtitle">Science-Driven Wellness</p >
-<a href=" " class="btn">Explore</a >
-</section>
+    <header class="hero-banner">
+        <h1>GENTLE AND NATURAL FORMULA</h1>
+    </header>
 
-<section id="about" class="section">
-<div class="card">
-<h2>ABOUT US</h2>
-<p>
-SOLVSTONE LABS is dedicated to premium wellness products inspired by science, quality, and innovation.
-Our mission is to deliver carefully crafted solutions that fit modern lifestyles.
-</p >
-</div>
-</section>
+    <main class="content-container">
+        
+        <section class="facts-column">
+            <img src="images/facts.png" alt="Supplement Facts and Chemical Info">
+        </section>
 
-<section class="section">
-<div class="card">
-<h2>CONTACT</h2>
-<p>Email Coming Soon</p >
-</div>
-</section>
+        <section class="product-column">
+            <div class="science-background"></div>
+            <img src="images/product.png" alt="444mg Curcumin Capsules" class="product-image">
+        </section>
 
-<footer>
-© 2026 SOLVSTONE LABS
-</footer>
+    </main>
 
 </body>
 </html>
