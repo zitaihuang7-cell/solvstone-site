@@ -1,329 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEARSTRAP | Cellular Longevity & Science</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>BEARSTRAP | Gentle Power, Natural Science.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* --- 1. 顶级全局美学体系 --- */
+        /* --- 全局纯净苹果白美学体系 --- */
         * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000; /* 深邃科技暗黑背景 */
-            color: #f5f5f7;
-            line-height: 1.6;
+            background-color: #f5f5f7; /* 经典苹果浅灰底色 */
+            color: #1d1d1f;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar { width: 0px; }
-
-        /* 微弱的背景光晕动态效果 - 模拟细胞能量 */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(0,113,227,0.08) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-            animation: pulseGlow 10s ease-in-out infinite alternate;
-        }
-        @keyframes pulseGlow {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.05); opacity: 1; }
-        }
-
-        /* --- 2. 苹果级浮动悬浮舱导航 --- */
+        /* --- 顶端纯白悬浮导航栏 --- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 64px;
+            height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .brand-logo {
             font-weight: 700;
-            font-size: 24px;
-            letter-spacing: 6px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #ffffff 30%, #0071e3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #0071e3; /* 经典科技蓝 */
+            white-space: nowrap;
         }
 
-        /* --- 3. 巨幕式幻灯片剧场布局 --- */
-        .slide-container {
-            width: 1340px;
-            height: 780px;
-            margin: 120px auto;
-            background: rgba(28, 28, 30, 0.6); /* 苹果高阶深色卡片 */
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 36px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-            /* 页面初次载入动画 */
-            opacity: 0;
-            transform: translateY(60px);
-            animation: stageReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        /* --- 核心大通铺主容器（对应最初整洁直观的页面布局） --- */
+        .main-wrapper {
+            max-width: 1060px;
+            margin: 90px auto 50px auto;
+            padding: 0 20px;
         }
 
-        @keyframes stageReveal {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .content-area {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 100px;
-        }
-
-        /* --- 4. 第一幕：震撼开幕 (Hero Narrative) --- */
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-        }
-        .hero-text {
-            padding-left: 40px;
-        }
-        .tagline {
-            color: #0071e3;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .hero-text h1 {
-            font-size: 64px;
-            font-weight: 700;
-            margin: 0;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            color: #ffffff;
-        }
-        .hero-text p {
-            font-size: 20px;
-            color: #a1a1a6;
-            margin-top: 30px;
-            font-weight: 300;
-            max-width: 500px;
-        }
-        .hero-main-viewport {
-            height: 100%;
-            width: 100%;
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
-            border-left: 1px solid rgba(255,255,255,0.05);
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .slide-container:hover .hero-main-viewport {
-            transform: scale(1.02);
-        }
-
-        /* --- 5. 第二幕：多维临床科技矩阵 (Feature Grid) --- */
-        .grid-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            width: 100%;
-        }
-        .feature-box {
-            background: rgba(44, 44, 46, 0.4);
-            border: 1px solid rgba(255,255,255,0.03);
-            padding: 60px 40px;
-            border-radius: 28px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .feature-box:hover {
-            transform: translateY(-10px);
-            background: rgba(44, 44, 46, 0.8);
-            border-color: #0071e3;
-            box-shadow: 0 30px 60px rgba(0,113,227,0.1);
-        }
-        .feature-box i {
-            font-size: 48px;
-            color: #0071e3;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0,113,227,0.3);
-        }
-        .feature-box h3 {
-            font-size: 26px;
-            margin: 0 0 20px 0;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .feature-box p {
-            color: #a1a1a6;
-            font-size: 16px;
-            margin: 0;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        /* --- 6. 第三幕：全尺寸双图医学实验室 (Showcase) --- */
-        .showcase-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 1.1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            align-items: center;
-        }
-        .img-card {
+        /* 通用高级白色独立大卡片 */
+        .content-card {
             background: #ffffff;
-            padding: 30px;
             border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 560px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
             position: relative;
             overflow: hidden;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .img-card:hover {
-            transform: scale(1.03) translateY(-5px);
+
+        /* --- 第一板块：Hero 主视觉大图区 --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 50px;
         }
-        .img-card img {
-            max-height: 100%;
+        .hero-image-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 450px;
+        }
+        .hero-image-box img {
             max-width: 100%;
+            height: auto;
             object-fit: contain;
         }
-
-        /* 成分表扫描特效 */
-        .scan-effect::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(0, 113, 227, 0.15), transparent);
-            animation: scanAnimation 3s linear infinite;
-            pointer-events: none;
+        .hero-text-box {
+            flex: 1;
         }
-        @keyframes scanAnimation {
-            0% { top: -100%; }
-            100% { top: 100%; }
+        .hero-text-box .sub-title {
+            color: #0071e3;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
         }
-
-        .info-panel {
-            padding-left: 30px;
-        }
-        .info-panel h2 {
-            font-size: 46px;
+        .hero-text-box h1 {
+            font-size: 42px;
             font-weight: 700;
-            margin: 0 0 24px 0;
-            line-height: 1.15;
-            color: #ffffff;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+            color: #1d1d1f;
+            letter-spacing: -1px;
         }
-        .info-panel p {
-            color: #a1a1a6;
+        .hero-text-box p {
             font-size: 17px;
-            line-height: 1.7;
-            margin: 0 0 40px 0;
-            font-weight: 300;
-        }
-        .formula-badge {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 35px;
-            border-radius: 24px;
-            text-align: center;
+            color: #86868b;
+            margin: 0;
+            font-weight: 400;
         }
 
-        /* --- 7. 响应式布局自适应调整 --- */
-        @media (max-width: 1400px) {
-            .slide-container { width: 95%; height: auto; margin: 60px auto; }
-            .hero-layout { grid-template-columns: 1fr; }
-            .hero-main-viewport { height: 480px; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
-            .hero-text { padding: 60px 40px; text-align: center; }
-            .hero-text p { margin: 30px auto 0 auto; }
-            .grid-features { grid-template-columns: 1fr; }
-            .showcase-layout { grid-template-columns: 1fr; gap: 40px; }
-            .img-card { height: 480px; }
-            .info-panel { padding-left: 0; text-align: center; }
+        /* --- 第二板块：三列多维科技矩阵 --- */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 30px 0;
+            color: #1d1d1f;
+            letter-spacing: -0.5px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .grid-item {
+            background: #f5f5f7;
+            border-radius: 18px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.01);
+        }
+        .grid-item i {
+            font-size: 36px;
+            color: #0071e3;
+            margin-bottom: 20px;
+        }
+        .grid-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            color: #1d1d1f;
+        }
+        .grid-item p {
+            font-size: 14px;
+            color: #86868b;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- 第三板块：精密双图对比解析室 --- */
+        .showcase-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        .display-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .display-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .info-card {
+            padding: 10px 0 0 10px;
+        }
+        .info-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            color: #1d1d1f;
+        }
+        .info-card p {
+            font-size: 14px;
+            color: #86868b;
+            margin: 0 0 30px 0;
+            line-height: 1.6;
+        }
+        .badge-box {
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .badge-box span {
+            display: block;
+            font-size: 11px;
+            color: #0071e3;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* 响应式自适应 */
+        @media (max-width: 992px) {
+            .hero-section { flex-direction: column; text-align: center; padding: 30px; }
+            .hero-text-box { padding-left: 0; }
+            .grid-container { grid-template-columns: 1fr; }
+            .showcase-container { grid-template-columns: 1fr; }
+            .display-card { height: 320px; }
+            .info-card { padding: 20px 0 0 0; text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-logo">BEARSTRAP</div>
+        <div class="brand-logo" translate="no">BEARSTRAP</div>
     </header>
 
-    <div class="slide-container" style="margin-top: 140px;">
-        <div class="hero-layout">
-            <div class="hero-text">
-                <div class="tagline">Bio-Medical Excellence</div>
-                <h1>Deep Cellular<br>Rejuvenation.</h1>
+    <div class="main-wrapper">
+        
+        <div class="content-card hero-section">
+            <div class="hero-image-box">
+                <img src="background.png" alt="Bearstrap Core Concept">
+            </div>
+            <div class="hero-text-box">
+                <div class="sub-title" translate="no">Bio-Medical Excellence</div>
+                <h1>Gentle Power,<br>Natural Science.</h1>
                 <p>An advanced molecular formulation engineered to fortify cellular defenses. Harnessing ultra-pure bioactive compounds to target aging at its core source.</p>
             </div>
-            <div class="hero-main-viewport"></div>
         </div>
-    </div>
 
-    <div class="slide-container">
-        <div class="content-area">
-            <div class="grid-features">
-                <div class="feature-box">
+        <div class="content-card">
+            <h2 class="section-title">Advanced Safety & Purity</h2>
+            <div class="grid-container">
+                <div class="grid-item">
                     <i class="fa-solid fa-microscope"></i>
-                    <h3>Cellular Bioavailability</h3>
-                    <p>Utilizing high-kinetic microscopic synthesis to drastically increase intestinal epithelial absorption rates compared to raw generic formulas.</p>
+                    <h3>Micro-encapsulated formula</h3>
+                    <p>Micro-kinetic synthesis to drastically increase bio-availability and epithelial absorption.</p>
                 </div>
-                <div class="feature-box">
+                <div class="grid-item">
                     <i class="fa-solid fa-vial-circle-check"></i>
-                    <h3>HPLC Certified Purity</h3>
-                    <p>Every single capsule is validated via High-Performance Liquid Chromatography to guarantee an active density profile exceeding 99.0%.</p>
+                    <h3>HPLC certified</h3>
+                    <p>HPLC certified for >99.0% active density profile validated via liquid chromatography.</p>
                 </div>
-                <div class="feature-box">
+                <div class="grid-item">
                     <i class="fa-solid fa-dna"></i>
-                    <h3>Non-Gmo Transparency</h3>
-                    <p>100% plant-derived hypoallergenic matrices. Completely clear of synthetic lubricants, heavy metals, magnesium stearate, or chemical fillers.</p>
+                    <h3>Non-GMO</h3>
+                    <p>Hypoallergenic botanical matrices with zero synthetic fillers or heavy metals.</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="slide-container">
-        <div class="content-area">
-            <div class="showcase-layout">
-                <div class="img-card">
-                    <img src="product.png" alt="Bearstrap Formulation Geometry">
+        <div class="content-card">
+            <h2 class="section-title">Precision Data Display</h2>
+            <div class="showcase-container">
+                <div class="display-card">
+                    <img src="product.png" alt="Bearstrap Formula Geometry">
                 </div>
-                <div class="img-card scan-effect">
+                <div class="display-card">
                     <img src="facts.png" alt="Clinical Label Supplement Facts">
                 </div>
-                <div class="info-panel">
-                    <h2>Absolute<br>Transparency.</h2>
-                    <p>We redefine trust through molecular accountability. Scan your individual bottle container matrix code to inspect third-party laboratory safety records.</p>
-                    <div class="formula-badge">
-                        <p style="color: #0071e3; margin: 0 0 12px 0; font-weight: 600; font-size: 13px; letter-spacing: 2px;">MOLECULAR TARGET</p>
+                <div class="info-card">
+                    <h4>Absolute<br>Transparency.</h4>
+                    <p>We redefine trust through molecular accountability. Inspect laboratory safety reports with ease.</p>
+                    <div class="badge-box">
+                        <span translate="no">MOLECULAR TARGET</span>
                         <math display="block">
                             <mrow>
                                 <msub><mi>C</mi><mn>21</mn></msub>
@@ -335,10 +276,11 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    <footer style="text-align: center; padding: 100px 0; color: #48484a; font-size: 13px; letter-spacing: 2px;">
-        © 2026 BEARSTRAP NUTRACEUTICAL LABORATORIES. EXPERIMENT VERIFIED.
+    <footer style="text-align: center; padding: 40px 0 80px 0; color: #86868b; font-size: 12px; letter-spacing: 1px;">
+        © 2026 BEARSTRAP NUTRACEUTICAL LABORATORIES. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
